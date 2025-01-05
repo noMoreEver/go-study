@@ -5,8 +5,6 @@ import (
 	"strings"
 )
 
-var a = "G"
-
 // 练习4.6
 func test1() {
 	var s = "asSASA ddd dsjkdsjs你好 dk"
@@ -95,6 +93,27 @@ func test7() {
 		fmt.Println(strings.Repeat("*", 20))
 	}
 }
+
+func trace(s string) string {
+	fmt.Println("entering:", s)
+	return s
+}
+
+func un(s string) {
+	fmt.Println("leaving:", s)
+}
+
+func a() {
+	defer un(trace("a"))
+	fmt.Println("in a")
+}
+
+func b() {
+	defer un(trace("b"))
+	fmt.Println("in b")
+	a()
+}
+
 func main() {
 	fmt.Println("Hello world!")
 	test1()
@@ -104,4 +123,14 @@ func main() {
 	test5()
 	test6()
 	test7()
+	test8(10, 5)
+	test9(10)
+	a := [5]string{"aaa", "你好", "bbb"}
+	test10(a[0:2]...)
+	test11()
+	b()
+	test12()
+	test13(10)
+	test14(30)
+	test15("Welcome to 中国!")
 }
