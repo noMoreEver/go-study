@@ -133,4 +133,9 @@ func main() {
 	test13(10)
 	test14(30)
 	test15("Welcome to 中国!")
+	test16()
+	test17()
+	test18()
+	test19()
+	test20()
 }
